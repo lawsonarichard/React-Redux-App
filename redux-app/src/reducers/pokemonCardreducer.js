@@ -1,5 +1,13 @@
+import {
+  FETCH_POKEMONCARD_DATA_SUCCESS,
+  FETCH_POKEMONCARD_DATA_START,
+  FETCH_POKEMONCARD_DATA_FAILURE
+} from "../actions";
+
 const initialState = {
-  cards: []
+  cards: [],
+  isLoading: false,
+  error: ""
 };
 
 export const reducer = (state = initialState, action) => {
@@ -10,5 +18,14 @@ export const reducer = (state = initialState, action) => {
         isLoading: true,
         error: ""
       };
+    case FETCH_POKEMONCARD_DATA_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        cards: action.payload,
+        error: ""
+      };
+    default:
+      return state;
   }
 };

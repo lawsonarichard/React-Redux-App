@@ -10,8 +10,11 @@ export const getData = () => {
     axios
       .get("https://api.pokemontcg.io/v1/cards?setCode=base1")
       .then(res => {
-        console.log(res);
-        dispatch({ type: FETCH_POKEMONCARD_DATA_SUCCESS, payload: res.data });
+        console.log(res.data.cards);
+        dispatch({
+          type: FETCH_POKEMONCARD_DATA_SUCCESS,
+          payload: res.data.cards
+        });
       })
       .catch(err => {
         dispatch({
