@@ -3,7 +3,9 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
 // styles
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "bootstrap/dist/css/bootstrap.min.css";
